@@ -26,14 +26,16 @@ def predict_value():
         ServiceLength = int(request.form['ServiceLength'])
         Achievements = int(request.form['Achievements'])
         Training_score = int(request.form['Training_score'])
+        sum_metric = int(request.form['sum_metric'])
+        total_score = int(request.form['total_score'])
 
         input_features = [ Department, Education, Sex, Recruitment,
        Trainings, Age, PerformanceRating, ServiceLength,
-       Achievements, Training_score]
+       Achievements, Training_score, sum_metric, total_score]
         features_value = [np.array(input_features)]
         feature_name = ['Department', 'Education', 'Sex', 'Recruitment',
        'Trainings', 'Age', 'PerformanceRating', 'ServiceLength',
-       'Achievements', 'Training_score']
+       'Achievements', 'Training_score','sum_metric','total_score']
 
         df = pd.DataFrame(features_value, columns=feature_name)
         output = model.predict(df)
